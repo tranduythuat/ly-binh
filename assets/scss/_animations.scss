@@ -1,0 +1,46 @@
+// Container cần perspective để có hiệu ứng 3D thật
+.image-wrapper {
+    perspective: 1000px; // độ sâu của 3D
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0;
+    img {
+        width: 320px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+}
+
+// Hiệu ứng flip-in 3D
+.animate-flip {
+    transform-origin: left center;
+    transform: rotateY(-120deg) scale(0.9);
+    opacity: 0;
+    filter: brightness(0.6);
+    backface-visibility: hidden;
+    transition: none;
+}
+
+.animate-flip.active {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+.timeline {
+    height: 200px;
+    width: 100%;
+    background-color: antiquewhite;
+    display: flex;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    top: 100px;
+    border-radius: 12px;
+}
+  
+.red   { background: #e74c3c; }
+.blue  { background: #3498db; }
+.green { background: #2ecc71; }

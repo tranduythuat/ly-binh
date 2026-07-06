@@ -1,0 +1,16 @@
+{
+    "name": "gsap-animation-demo",
+    "version": "1.0.0",
+    "description": "Demo hiệu ứng GSAP với SCSS và module JS",
+    "scripts": {
+      "dev": "concurrently \"npm run sass:watch\" \"npm run serve\"",
+      "sass:watch": "sass assets/scss/main.scss dist/css/main.css --watch",
+      "serve": "live-server --port=5173"
+    },
+    "devDependencies": {
+      "sass": "^1.79.0",
+      "live-server": "^1.2.2",
+      "concurrently": "^8.2.2"
+    }
+  }
+  

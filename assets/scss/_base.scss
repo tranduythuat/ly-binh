@@ -1,0 +1,110 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: $font-size-base;
+    @include flex-center;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    // overflow-x: hidden;
+    box-shadow: $shadow-default;
+    background-color: $bg-color;
+}
+
+.music-block {
+    display: flex;
+    position: fixed;
+    bottom: 10px;
+    right: 1%;
+    z-index: 9999;
+
+    .player {
+        @include flex-center;
+        max-width: 55px;
+        width: 100%;
+        aspect-ratio: 1;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        z-index: 9999;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+    }
+    
+    .music-label {
+        @include flex-center;
+        width: 105px;
+        color: white;
+        label {
+            font-family: $blushing-rose-font;
+            font-size: 11px;
+            cursor: pointer;
+            width: 100%;
+            padding: 6% 0 5% 15%;
+            background-color: #706851c7;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius:25px;
+            transform: translateX(30%);
+            border: 1px solid white;
+        }
+    }
+}
+
+.spin {
+    animation: spin 4s linear infinite;
+}
+
+
+/* Định nghĩa hoạt ảnh xoay */
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        font-size: calc(($font-size-base / 500px) * 100vw);
+    }
+
+    .music-block {
+        .player {
+            max-width: calc((55 / 500) * 100vw);
+        }
+    
+        .music-label {
+            width: calc((105 / 500) * 100vw);
+            label {
+                font-size: calc((11 / 500) * 100vw);
+            }
+        }
+    }
+
+}

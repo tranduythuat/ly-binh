@@ -1,0 +1,9 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+header {
+    @include flex-center;
+    background: $primary-color;
+    color: white;
+    padding: 1rem;
+}

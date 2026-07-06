@@ -1,0 +1,32 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.qrcode {
+    width: 100%;
+    .content {
+        width: 100%;
+        padding-bottom: 20%;
+        img {
+            cursor: pointer;
+            width: 20%;
+            height: auto;
+        }
+        p {
+            font-family: $blushing-rose-font;
+            font-size: 13px;
+            cursor: pointer;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .content {
+            p {
+                font-size: calc((13 / 500) * 100vw);
+            }
+        }
+    }
+}
+
+div:where(.swal2-container) img:where(.swal2-image) {
+    border-radius: 25px;
+}
