@@ -51,23 +51,17 @@ document.addEventListener("DOMContentLoaded", () => {
         iconSvg.classList.remove('spin');
     });
   }
-  const btn = document.getElementById('player-btn');
-  const labelMusic = document.getElementById('music-label');
-  btn.addEventListener('click', toggleMusic);
-  labelMusic.addEventListener('click', toggleMusic);
-
-  const formNhaTrai = document.forms["rsvpForm-nhatrai"];
-  const formNhaGai = document.forms["rsvpForm-nhagai"];
-  if (formNhaTrai) {
-    formNhaTrai.addEventListener("submit", (e) => handleFormSubmit(e, 'nhatrai'));
-  }
-
-  if (formNhaGai) {
-    formNhaGai.addEventListener("submit", (e) => handleFormSubmit(e, 'nhagai'));
+  // const btn = document.getElementById('player-btn');
+  // const labelMusic = document.getElementById('music-label');
+  // btn.addEventListener('click', toggleMusic);
+  // labelMusic.addEventListener('click', toggleMusic);
+  const form = document.forms["rsvpForm"];
+  if (form) {
+    form.addEventListener("submit", (e) => handleFormSubmit(e));
   }
 });
 
-async function handleFormSubmit(e, code) {
+async function handleFormSubmit(e) {
   e.preventDefault();
 
   const form = e.target;
@@ -77,8 +71,8 @@ async function handleFormSubmit(e, code) {
 
   const {
     name: name,
+    phone: phone,
     attendance: attendance,
-    dietary: dietary,
     message: message,
   } = data;
   console.log("🚀 ~ handleFormSubmit 2~ data:", data);
@@ -94,13 +88,15 @@ async function handleFormSubmit(e, code) {
     },
   });
 
-  const urlObj = {
-    nhatrai: "?sheet=nha-trai",
-    nhagai: "?sheet=nha-gai"
-  }
+  const url = "https://script.google.com/macros/s/AKfycbz-t5rw6QhdJ_YV02--MqYRZ_PtUfPbi8N5jySK6eryNXtVrmdOnRs8sWLiOQhn6JpRtg/exec?sheet=confirm";
+
+  // const urlObj = {
+  //   nhatrai: "?sheet=nha-trai",
+  //   nhagai: "?sheet=nha-gai"
+  // }
 
   
-  const url = urlObj[code]??"";
+  // const url = urlObj[code]??"";
   console.log('code', url);
   
   try {
@@ -109,8 +105,8 @@ async function handleFormSubmit(e, code) {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
         name,
+        phone,
         attendance,
-        dietary,
         message
       }),
     });

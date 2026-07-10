@@ -586,12 +586,30 @@ header {
 }
 .qrcode .content {
   width: 100%;
-  padding-bottom: 20%;
+  padding: 20% 0 30%;
 }
 .qrcode .content img {
   cursor: pointer;
   width: 20%;
   height: auto;
+}
+.qrcode .content button {
+  width: 38%;
+  padding: 2%;
+  background: rgb(0, 0, 0);
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: "1FTVBlushingRose", sans-serif;
+  letter-spacing: 1px;
+  transition: background 0.3s ease;
+  margin-bottom: 4%;
+}
+.qrcode .content button:hover {
+  background-color: rgb(83, 82, 82);
 }
 .qrcode .content p {
   font-family: "1FTVBlushingRose", sans-serif;
@@ -602,10 +620,15 @@ header {
   .qrcode .content p {
     font-size: 2.6vw;
   }
+  .qrcode .content button {
+    border-radius: 3vw;
+    font-size: 2.4vw;
+  }
 }
 
 div:where(.swal2-container) img:where(.swal2-image) {
   border-radius: 25px;
+  width: 40% !important;
 }
 
 .end {

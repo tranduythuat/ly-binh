@@ -5,11 +5,29 @@
     width: 100%;
     .content {
         width: 100%;
-        padding-bottom: 20%;
+        padding: 20% 0 30%;
         img {
             cursor: pointer;
             width: 20%;
             height: auto;
+        }
+        button {
+            width: 38%;
+            padding: 2%;
+            background: rgb(0, 0, 0);
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            font-family: $blushing-rose-font;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+            margin-bottom: 4%;
+            &:hover {
+                background-color:  rgb(83, 82, 82);
+            }
         }
         p {
             font-family: $blushing-rose-font;
@@ -23,10 +41,16 @@
             p {
                 font-size: calc((13 / 500) * 100vw);
             }
+
+            button {
+                border-radius: calc((15 / 500) * 100vw);
+                font-size: calc((12 / 500) * 100vw);
+            }
         }
     }
 }
 
 div:where(.swal2-container) img:where(.swal2-image) {
     border-radius: 25px;
+    width: 40% !important;
 }
